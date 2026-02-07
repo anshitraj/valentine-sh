@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-nunito: "Nunito", system-ui, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --blush: #fce7f0;
+  --rose: #e11d48;
+  --cream: #fffbeb;
+  --muted: #78716c;
+  /* Cute pastel palette */
+  --blush-pink: #fce7f0;
+  --peach: #ffdab9;
+  --lavender: #e6e6fa;
+  --baby-blue: #b8d4e8;
+  --mint-green: #c7f0db;
+  --soft-yellow: #fff4c4;
+  /* Gentle-days theme */
+  --background: 355 100% 97%;
+  --foreground: 350 25% 25%;
+  --card: 30 50% 98%;
+  --card-foreground: 350 25% 25%;
+  --primary: 350 65% 65%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 355 60% 92%;
+  --secondary-foreground: 350 40% 35%;
+  --muted-foreground: 350 20% 50%;
+  --border: 350 30% 88%;
+  --rose-light: 350 80% 85%;
+  --rose-glow: 350 100% 90%;
+  --blush-hsl: 355 100% 97%;
+  --heart: 350 80% 55%;
+  --cream-warm: 35 60% 96%;
+  --whatsapp: 142 70% 45%;
+  --shadow-soft: 0 4px 20px -4px hsl(350 50% 70% / 0.15);
+  --shadow-card: 0 8px 32px -8px hsl(350 50% 60% / 0.12);
+  --shadow-hover: 0 12px 40px -8px hsl(350 50% 60% / 0.2);
+  --shadow-modal-glow: 0 20px 60px -12px rgba(236, 72, 153, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  --radius: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(165deg, #fce7f0 0%, #ffdab9 25%, #e6e6fa 55%, #b8d4e8 85%, #c7f0db 100%);
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Locked tile blur */
+.tile-locked {
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+/* Subtle sparkle */
+@keyframes sparkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes balloon-float {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0.9;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Gentle-days utilities */
+.text-gradient-rose {
+  @apply bg-gradient-to-r from-rose to-rose-soft bg-clip-text text-transparent;
+}
+.bg-gradient-soft {
+  @apply bg-gradient-to-b from-[hsl(var(--blush-hsl))] to-[hsl(var(--rose-glow))];
+}
+.card-valentine {
+  @apply rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--card))];
+  box-shadow: var(--shadow-card);
+}
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1;
+  box-shadow: var(--shadow-card);
+}
+.card-hover:hover {
+  box-shadow: var(--shadow-hover);
+}
+.btn-rose {
+  @apply rounded-full px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5;
+  background: hsl(var(--primary));
+  box-shadow: var(--shadow-soft);
+}
+.btn-rose:hover {
+  background: hsl(var(--heart));
+  box-shadow: var(--shadow-hover);
+}
+.btn-whatsapp {
+  @apply rounded-full px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110;
+  background: hsl(var(--whatsapp));
+  box-shadow: var(--shadow-soft);
+}
+.btn-whatsapp:hover {
+  box-shadow: var(--shadow-hover);
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide-in {
+  animation: fadeSlideIn 0.4s ease-out forwards;
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating background bubbles (slow, vertical) */
+@keyframes bubble-float {
+  0% { transform: translateY(100vh) translateX(0) scale(1); opacity: 0.08; }
+  10% { opacity: 0.12; }
+  90% { opacity: 0.06; }
+  100% { transform: translateY(-20vh) translateX(10px) scale(1.1); opacity: 0.04; }
+}
+.animate-bubble-float {
+  animation: bubble-float 18s linear infinite;
+}
+
+/* Decorative icons fade in/out */
+@keyframes float-decor {
+  0%, 100% { opacity: 0.25; transform: translateY(0) scale(1); }
+  50% { opacity: 0.55; transform: translateY(-6px) scale(1.05); }
+}
+.animate-float-decor {
+  animation: float-decor 4s ease-in-out infinite;
+}
+
+/* Lock icon gentle shake */
+@keyframes lock-shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
+.animate-lock-shake {
+  animation: lock-shake 2.5s ease-in-out infinite;
+}
+
+/* Card hover tilt */
+.card-hover-tilt {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card-hover-tilt:hover {
+  transform: rotate(-1.5deg) scale(1.02);
+}
+
+/* Emoji bounce on hover (parent has group) */
+.emoji-bounce-hover {
+  transition: transform 0.3s ease;
+}
+.group:hover .emoji-bounce-hover {
+  animation: emoji-bounce 0.5s ease;
+}
+@keyframes emoji-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+/* Soft rainbow glow for unlocked cards */
+.rainbow-glow-hover {
+  transition: box-shadow 0.4s ease;
+}
+.rainbow-glow-hover:hover {
+  box-shadow: 0 0 0 2px rgba(255, 182, 193, 0.6), 0 0 20px -4px rgba(230, 230, 250, 0.5), 0 0 30px -8px rgba(184, 212, 232, 0.3);
+}
+
+/* Bubble squish on click */
+@keyframes bubble-squish {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.92); }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.animate-bubble-squish {
+  animation: bubble-squish 0.4s ease-out;
+}
+
+/* Modal entry: scale + fade */
+@keyframes modal-scale-in {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-modal-in {
+  animation: modal-scale-in 0.35s ease-out forwards;
+}
+
+/* Modal exit: fade down */
+@keyframes modal-fade-down {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* Panda / character subtle bounce */
+@keyframes panda-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.animate-panda-bounce {
+  animation: panda-bounce 3s ease-in-out infinite;
+}
+
+/* Idle breathing for decorative animals (soft, non-distracting) */
+@keyframes idle-breathing {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.92; }
+  50% { transform: translateY(-3px) scale(1.02); opacity: 1; }
+}
+.animate-idle-breathing {
+  animation: idle-breathing 4s ease-in-out infinite;
+}
+
+/* Panda thought bubble: soft pop/scale in */
+@keyframes panda-bubble-pop {
+  0% { opacity: 0; transform: scale(0.85); }
+  60% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-panda-bubble-pop {
+  animation: panda-bubble-pop 0.35s ease-out forwards;
+}
