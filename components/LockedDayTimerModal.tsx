@@ -75,13 +75,17 @@ export function LockedDayTimerModal({ day, onClose }: Props) {
         aria-hidden
       />
       <div
-        className="fixed left-1/2 top-1/2 z-[120] w-[90%] max-w-sm -translate-x-1/2 -translate-y-1/2 rounded-[2rem] p-6 shadow-modal-cute border border-stone-200/80 animate-modal-in relative overflow-visible"
-        style={{ backgroundColor: "rgb(255 255 255)" }}
-        role="dialog"
-        aria-modal="true"
-        aria-label={`Countdown for Feb ${day}`}
-        onClick={(e) => e.stopPropagation()}
+        className="fixed inset-0 z-[120] flex items-center justify-center p-4 pointer-events-none"
+        aria-hidden
       >
+        <div
+          className="w-full max-w-sm rounded-[2rem] p-6 shadow-modal-cute border border-stone-200/80 animate-modal-in relative overflow-visible pointer-events-auto"
+          style={{ backgroundColor: "rgb(255 255 255)" }}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Countdown for Feb ${day}`}
+          onClick={(e) => e.stopPropagation()}
+        >
         <span className="absolute left-4 top-4 text-lg opacity-40" aria-hidden>🔒</span>
         <span className="absolute right-12 top-4 text-lg opacity-30" aria-hidden>💗</span>
         <button
@@ -105,6 +109,7 @@ export function LockedDayTimerModal({ day, onClose }: Props) {
           </p>
           <p className="mt-2 text-sm text-stone-500">left until this gift opens</p>
         </div>
+      </div>
       </div>
     </>
   );

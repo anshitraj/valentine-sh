@@ -168,6 +168,14 @@ function DayContent({ day }: { day: DayKey }) {
           <p className="text-stone-600 leading-relaxed">
             Here&apos;s to the small things that make days a little brighter 💗
           </p>
+          <InteractiveBubble
+            title="Roses are red and violets are blue, there's nothing in the world more prettier than you. Waise roses bhejoon kya? (click me) 🌹"
+            icon="🌹"
+            color="bg-rose-100 border-rose-200"
+            yesNo
+            yesText="Yaar abhi virtual se kaam chala lo, next baar Ahmedabad aajunga dene 🌹"
+            noText="Koi baat nahi — virtual roses bhi dil se hain. Next time pakka! 💗"
+          />
           <FunQuiz
             question="Pick one: Roses or Chocolates?"
             icon="🌹"
