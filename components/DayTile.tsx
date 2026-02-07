@@ -1,6 +1,6 @@
 "use client";
 
-import type { DayKey } from "@/app/page";
+import type { DayKey } from "@/app/types";
 
 const DAY_LABELS: Record<DayKey, { label: string; emoji: string }> = {
   7: { label: "Rose Day", emoji: "🌹" },

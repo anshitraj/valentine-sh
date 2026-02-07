@@ -1,15 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import type { DayKey } from "@/app/types";
 import { CalendarGrid } from "@/components/CalendarGrid";
 import { GiftModal } from "@/components/GiftModal";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { LockedDayTimerModal } from "@/components/LockedDayTimerModal";
 import { HeaderPanda } from "@/components/CuteDecorations";
 import { SoundToggle } from "@/components/SoundToggle";
-
-export type DayKey = 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14;
 
 export default function Home() {
   const [openDay, setOpenDay] = useState<DayKey | null>(null);
@@ -18,14 +16,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen px-4 py-8 pb-24 sm:py-12">
-      <nav className="flex justify-center items-center gap-4 mb-2">
-        <Link
-          href="/gentle-days"
-          className="text-sm text-muted hover:text-rose-600 transition-colors duration-300"
-        >
-          View as list →
-        </Link>
-      </nav>
       <div className="relative mx-auto max-w-lg mb-10">
         <div className="absolute right-0 top-0 z-10">
           <SoundToggle />

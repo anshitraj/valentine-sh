@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { DayKey } from "@/app/page";
+import type { DayKey } from "@/app/types";
 import { useSound } from "@/contexts/SoundContext";
 import { InteractiveBubble } from "./InteractiveBubble";
 import { GiftBoxAnimation } from "./GiftBoxAnimation";

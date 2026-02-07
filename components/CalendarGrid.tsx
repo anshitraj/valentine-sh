@@ -1,6 +1,6 @@
 "use client";
 
-import type { DayKey } from "@/app/page";
+import type { DayKey } from "@/app/types";
 import { DayTile } from "./DayTile";
 
 const DAYS: DayKey[] = [7, 8, 9, 10, 11, 12, 13, 14];

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { DayKey } from "@/app/page";
+import type { DayKey } from "@/app/types";
 
 const DAY_LABELS: Record<DayKey, string> = {
   7: "Rose Day",
