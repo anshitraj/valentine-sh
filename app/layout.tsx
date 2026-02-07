@@ -17,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="antialiased">
+    <html lang="en" className="antialiased" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className="min-h-screen font-sans text-stone-700 relative flex flex-col">
         <SoundProvider>
           <PandaBubbleProvider>

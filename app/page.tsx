@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { CalendarGrid } from "@/components/CalendarGrid";
 import { GiftModal } from "@/components/GiftModal";
@@ -9,36 +9,12 @@ import { LockedDayTimerModal } from "@/components/LockedDayTimerModal";
 import { HeaderPanda } from "@/components/CuteDecorations";
 import { SoundToggle } from "@/components/SoundToggle";
 
-const SANDBOX_STORAGE_KEY = "valentine-sandbox-mode";
-
 export type DayKey = 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14;
-
-function getStoredSandbox(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    return localStorage.getItem(SANDBOX_STORAGE_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
 
 export default function Home() {
   const [openDay, setOpenDay] = useState<DayKey | null>(null);
   const [showFeb8Birthday, setShowFeb8Birthday] = useState(false);
-  const [sandboxMode, setSandboxModeState] = useState(false);
   const [lockedDayTimer, setLockedDayTimer] = useState<DayKey | null>(null);
-
-  // Hydrate sandbox from localStorage after mount (avoids SSR mismatch)
-  useEffect(() => {
-    setSandboxModeState(getStoredSandbox());
-  }, []);
-
-  const setSandboxMode = (value: boolean) => {
-    setSandboxModeState(value);
-    try {
-      localStorage.setItem(SANDBOX_STORAGE_KEY, value ? "1" : "0");
-    } catch {}
-  };
 
   return (
     <main className="min-h-screen px-4 py-8 pb-24 sm:py-12">
@@ -49,16 +25,6 @@ export default function Home() {
         >
           View as list →
         </Link>
-        <label htmlFor="sandbox-toggle" className="flex items-center gap-2 cursor-pointer select-none">
-          <span className="text-sm text-muted">Sandbox</span>
-          <input
-            id="sandbox-toggle"
-            type="checkbox"
-            checked={sandboxMode}
-            onChange={(e) => setSandboxMode(e.target.checked)}
-            className="w-4 h-4 rounded border-lavender text-rose-600 focus:ring-rose-500 cursor-pointer accent-peach"
-          />
-        </label>
       </nav>
       <div className="relative mx-auto max-w-lg mb-10">
         <div className="absolute right-0 top-0 z-10">
@@ -73,7 +39,7 @@ export default function Home() {
             Feb 7 → Feb 14 · For Srushti <span className="sparkle inline-block">🌸</span>
           </p>
           <div className="mt-3">
-            <CountdownTimer sandboxMode={sandboxMode} selectedLockedDay={lockedDayTimer} />
+            <CountdownTimer sandboxMode={false} selectedLockedDay={lockedDayTimer} />
           </div>
         </header>
       </div>
@@ -82,7 +48,7 @@ export default function Home() {
         openDay={openDay}
         setOpenDay={setOpenDay}
         setShowFeb8Birthday={setShowFeb8Birthday}
-        sandboxMode={sandboxMode}
+        sandboxMode={false}
         setLockedDayTimer={setLockedDayTimer}
       />
 

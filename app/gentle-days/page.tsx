@@ -58,10 +58,10 @@ export default function GentleDaysPage() {
 
           <DayCard date="Feb 9" dayName="Sunday" title="Chocolate Day" emoji="🍫">
             <p className="text-[hsl(var(--foreground))]/80 text-sm leading-relaxed">
-              If we weren&apos;t strangers, I&apos;d have sent you chocolates today.
+              Here is a little virtual chocolate moment for today.
               <br />
               <br />
-              For now, imagine dark chocolate — calm, classy, and comforting.
+              Imagine dark chocolate -- calm, classy, and comforting.
             </p>
           </DayCard>
 
@@ -77,7 +77,7 @@ export default function GentleDaysPage() {
                 />
               </div>
               <p className="text-[hsl(var(--foreground))]/80 text-sm leading-relaxed text-center">
-                I could&apos;ve sent you a teddy…
+                I could&apos;ve sent you a teddy...
                 <br />
                 but I don&apos;t know your address 😅
               </p>
@@ -94,10 +94,10 @@ export default function GentleDaysPage() {
               <p>Quick check:</p>
               <div className="flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] text-sm">
-                  Water ✔️
+                  Water ✓
                 </span>
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] text-sm">
-                  Protein ✔️
+                  Protein ✓
                 </span>
               </div>
               <p className="mt-3">
@@ -108,7 +108,7 @@ export default function GentleDaysPage() {
             </div>
           </SpecialCard>
 
-          <DayCard date="Feb 11" dayName="Tuesday" title="Promise Day" emoji="🤍">
+          <DayCard date="Feb 11" dayName="Tuesday" title="Promise Day" emoji="🤝">
             <div className="space-y-3">
               <p className="text-[hsl(var(--foreground))]/80 text-sm leading-relaxed">
                 No big promises.
@@ -164,7 +164,7 @@ export default function GentleDaysPage() {
           >
             <div className="space-y-4">
               <p className="text-[hsl(var(--foreground))]/80 text-sm leading-relaxed">
-                7–14 doesn&apos;t matter.
+                7-14 doesn&apos;t matter.
                 <br />
                 What matters is <span className="font-semibold text-[hsl(var(--foreground))]">you</span>.
               </p>
@@ -185,3 +185,4 @@ export default function GentleDaysPage() {
     </div>
   );
 }
+
